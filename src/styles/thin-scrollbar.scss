@@ -1,0 +1,21 @@
+$scrollBgColor: #F1F1F1;
+$scrollColor: #A1A1A1;
+
+.thin-scrollbar {
+  &::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $scrollBgColor;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollColor;
+    border-radius: 20px;
+    border: 3px solid $scrollBgColor;
+  }
+
+  scrollbar-width: thin; // 9px in firefox
+  scrollbar-color: $scrollColor $scrollBgColor;
+}
