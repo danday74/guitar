@@ -8,6 +8,11 @@ export const routes: Routes = [
     loadChildren: () => import('./routes/song/routes').then(m => m.routes)
   },
   {
+    path: 'songs',
+    component: MainLayoutComponent,
+    loadChildren: () => import('./routes/songs/routes').then(m => m.routes)
+  },
+  {
     path: '**',
     redirectTo: 'song'
   }
