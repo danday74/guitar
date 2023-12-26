@@ -1,5 +1,9 @@
 @import 'thin-scrollbar';
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   height: 100%;
 }

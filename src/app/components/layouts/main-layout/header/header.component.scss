@@ -1,9 +1,27 @@
 @import 'colors';
+@import 'vars';
 
 header {
   background-color: $primary;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: $headerHeight * 1px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
 }
 
-.active {
-  color: red;
+a {
+  color: #FFF;
+  padding: 5px 20px 8px;
+  margin-right: 12px;
+  font-size: 20px;
+  background-color: darken($primary, 10);
+  text-decoration: none;
+
+  &.active {
+    background-color: $secondary;
+    text-decoration: underline;
+  }
 }
