@@ -1,1 +1,3 @@
-<div>add song</div>
+<ng-container [ngSwitch]="stage">
+  <ng-container *ngSwitchCase="1"><app-lyrics></app-lyrics></ng-container>
+</ng-container>
