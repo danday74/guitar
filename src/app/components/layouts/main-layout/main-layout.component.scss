@@ -1,0 +1,6 @@
+@import 'vars';
+
+main {
+  padding-bottom: $footerHeight * 1px;
+  min-height: calc(100% - $headerHeight * 1px);
+}
