@@ -1,0 +1,17 @@
+@import 'vars';
+
+footer {
+  background-color: #444;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: $footerHeight * 1px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 20px;
+
+  div {
+    color: #FFF;
+  }
+}
