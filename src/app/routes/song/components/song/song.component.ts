@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 
 @Component({
   selector: 'app-song',
@@ -7,4 +7,6 @@ import { Component } from '@angular/core'
   templateUrl: './song.component.html',
   styleUrl: './song.component.scss'
 })
-export class SongComponent {}
+export class SongComponent {
+  @Input() id: string
+}

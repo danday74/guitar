@@ -14,6 +14,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'song'
+    redirectTo: 'songs'
   }
 ]
