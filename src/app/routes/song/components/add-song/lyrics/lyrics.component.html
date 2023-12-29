@@ -2,16 +2,19 @@
   <div class="heading">add lyrics only or lyrics with chords</div>
   <div class="grid">
     <div class="cell lhs">
-      <label for="verse">verse(s)</label>
-      <textarea id="verse" class="thin-scrollbar"></textarea>
+      <label for="verses">verse(s)</label>
+      <textarea id="verses" class="thin-scrollbar"
+                [ngModel]="raw.verses" (ngModelChange)="updateSong('verses', $event)"></textarea>
     </div>
     <div class="cell rhs-top">
-      <label for="chorus">chorus(es)</label>
-      <textarea id="chorus" class="thin-scrollbar"></textarea>
+      <label for="choruses">chorus(es)</label>
+      <textarea id="choruses" class="thin-scrollbar"
+                [ngModel]="raw.choruses" (ngModelChange)="updateSong('choruses', $event)"></textarea>
     </div>
     <div class="cell rhs-bottom">
-      <label for="bridge">bridge(s)</label>
-      <textarea id="bridge" class="thin-scrollbar"></textarea>
+      <label for="bridges">bridge(s)</label>
+      <textarea id="bridges" class="thin-scrollbar"
+                [ngModel]="raw.bridges" (ngModelChange)="updateSong('bridges', $event)"></textarea>
     </div>
   </div>
 </div>
