@@ -1,7 +1,7 @@
 @import 'vars';
 
 footer {
-  background-color: #444;
+  background-color: #000;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -10,8 +10,4 @@ footer {
   align-items: center;
   justify-content: flex-end;
   padding: 0 20px;
-
-  div {
-    color: #FFF;
-  }
 }
