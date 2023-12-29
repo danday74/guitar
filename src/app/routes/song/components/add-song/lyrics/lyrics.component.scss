@@ -1,3 +1,4 @@
+@import 'colors';
 @import 'vars';
 
 .lyrics {
@@ -23,7 +24,7 @@
     gap: $gridGap * 1px;
 
     .cell {
-      background-color: #EEE;
+      background-color: $primary;
       border-radius: 10px;
       padding: 10px 20px 20px;
 
@@ -42,10 +43,18 @@
 
       textarea {
         height: calc(100% - $lyricsLabelHeight * 1px);
+        background-color: #222;
+        font-size: 18px;
+        font-family: monospace;
+        color: #FFF;
         width: 100%;
         resize: none;
         border: none;
         outline: none;
+
+        &:focus {
+          background-color: #111;
+        }
       }
     }
   }
