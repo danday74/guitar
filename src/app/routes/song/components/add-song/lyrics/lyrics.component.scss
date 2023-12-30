@@ -51,6 +51,7 @@
         resize: none;
         border: none;
         outline: none;
+        overflow-y: scroll;
 
         &:focus {
           background-color: #111;
