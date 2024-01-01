@@ -1,10 +1,11 @@
 import { LanguageSupport, StreamLanguage, StringStream } from '@codemirror/language'
 import { tags as t } from '@lezer/highlight'
 import { completeFromList } from '@codemirror/autocomplete'
+import { Extension } from '@codemirror/state'
 
 export const ChordsAndLyricsLanguage: StreamLanguage<any> = StreamLanguage.define({
   name: 'ChordsAndLyrics',
-  startState: (/* indentUnit: number */) => {},
+  startState: (/* indentUnit: number */) => ({}),
   token: (stream: StringStream, state: any = {}): string => {
     if (stream.match('db')) {
       state.db = true
@@ -81,11 +82,9 @@ export const ChordsAndLyricsLanguage: StreamLanguage<any> = StreamLanguage.defin
     stream.next()
     return null
   },
-  blankLine: (/* state: {}, indentUnit: number */): void => {},
+  blankLine: (/* state: {}, indentUnit: number */) => {},
   copyState: (/* state: {} */) => {},
-  indent: (/* state: {}, textAfter: string, context: IndentContext */): number | null => {
-    return 1
-  },
+  indent: (/* state: {}, textAfter: string, context: IndentContext */): number => 1,
   languageData: {
     commentTokens: { line: ';' }
   },
@@ -100,7 +99,7 @@ export const ChordsAndLyricsLanguage: StreamLanguage<any> = StreamLanguage.defin
   }
 })
 
-export const ChordsAndLyricsCompletion = ChordsAndLyricsLanguage.data.of({
+export const ChordsAndLyricsCompletion: Extension = ChordsAndLyricsLanguage.data.of({
   autocomplete: completeFromList([
     { label: 'db', type: 'namespace' },
     { label: 'collection', type: 'function' },
