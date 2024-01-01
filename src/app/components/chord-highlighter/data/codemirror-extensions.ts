@@ -16,7 +16,7 @@ import { autocompletion, closeBrackets, closeBracketsKeymap, completionKeymap } 
 import { highlightSelectionMatches, searchKeymap } from '@codemirror/search'
 import { lintKeymap } from '@codemirror/lint'
 
-// see basicSetup at node_modules/codemirror/dist/index.js
+// see basicSetup from node_modules/codemirror/dist/index.js
 
 const codemirrorExtensions: Extension[] = (() => [
   lineNumbers(),
