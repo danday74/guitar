@@ -22,21 +22,21 @@ const initialState: IState = {
   whereOperator: false
 }
 
-// https://stackoverflow.com/questions/75191956/how-to-properly-define-a-codemirror-language
 // https://codemirror.net/docs/ref/#language.StreamParser
+// https://stackoverflow.com/questions/75191956/how-to-properly-define-a-codemirror-language
 
 export const ChordsAndLyricsLanguage: StreamLanguage<IState> = StreamLanguage.define({
   // A name for this language
   name: 'ChordsAndLyrics',
 
   // Produce a start state for the parser
-  startState: (/* indentUnit: number */): IState => initialState,
+  startState: (/* indentUnit: number */): IState => cloneDeep(initialState),
 
   // Read one token, advancing the stream past it, and returning a string indicating the token's style tag
   // either the name of one of the tags in tags or tokenTable, or such a name suffixed by one or more tag modifier names, separated by periods
   // For example "keyword" or "variableName.constant", or a space-separated set of such token types
   // It is okay to return a zero-length token, but only if that updates the state so that the next call will return a non-empty token again
-  token: (stream: StringStream, state: IState = initialState): string => {
+  token: (stream: StringStream, state: IState = cloneDeep(initialState)): string => {
     if (stream.match('db')) {
       state.db = true
       return 'keyword'
@@ -120,7 +120,7 @@ export const ChordsAndLyricsLanguage: StreamLanguage<IState> = StreamLanguage.de
   copyState: (state: IState): IState => cloneDeep(state),
 
   // Compute automatic indentation for the line that starts with the given state and text
-  indent: (/* state: IState, textAfter: string, context: IndentContext */): number => 1,
+  indent: (/* state: IState, textAfter: string, context: IndentContext */): number => 0,
 
   // Default language data to attach to this language
   languageData: {
