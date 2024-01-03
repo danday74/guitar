@@ -16,6 +16,9 @@
       ],
       "rules": {
         "semi": ["error", "never"],
+        "comma-dangle": ["error", "never"],
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
         "@angular-eslint/directive-selector": [
           "error",
           {
