@@ -1,0 +1,17 @@
+.cm-completionIcon-chord {
+  &:after {
+    content: '\1D160'; // quaver 𝅘𝅥𝅮
+  }
+}
+
+.cm-completionIcon-chord-sharp {
+  &:after {
+    content: '\266F'; // sharp ♯
+  }
+}
+
+.cm-completionIcon-chord-flat {
+  &:after {
+    content: '\266D'; // flat ♭
+  }
+}
