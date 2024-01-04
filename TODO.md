@@ -11,3 +11,5 @@
 * reduce effort for dispatch changes
 * consider signals
 * TODOs
+* ngFor and ngIf removal
+* getChordsRegex should have ^ ?
