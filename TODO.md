@@ -13,3 +13,4 @@
 * TODOs
 * ngFor and ngIf removal
 * getChordsRegex should have ^ ?
+* add isChordLine function instead of always using onlyIncludes (although onlyIncludes should remain also)
