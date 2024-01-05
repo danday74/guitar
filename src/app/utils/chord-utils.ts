@@ -11,6 +11,7 @@ export const toStandard = (chord: TChord): TChord => {
   return chord
 }
 
+// TODO: Ensure onlyIncludes uses this instead where possible
 export const isChordLine = (line: string, options: IChordOptions = defaultChordOptions): boolean => {
   const chords: TChord[] = getChords(options)
   return onlyIncludes(line, chords)
