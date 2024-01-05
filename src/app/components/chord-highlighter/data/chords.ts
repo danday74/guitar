@@ -1,6 +1,5 @@
 import { memoize } from 'lodash-es'
 import { defaultChordOptions, IChordOptions } from '@components/chord-highlighter/interfaces/i-chord-options'
-import { IChordsAndRegex } from '@components/chord-highlighter/interfaces/i-chords-and-regex'
 import { TChord } from '@components/chord-highlighter/types/t-chord'
 import { TNote } from '@components/chord-highlighter/types/t-note'
 import { TVariation } from '@components/chord-highlighter/types/t-variation'
@@ -48,14 +47,6 @@ export const getChordsRegex = memoize(
     const strRegex: string = chords.sort((c1: TChord, c2: TChord): number => c2.length - c1.length).join('|')
     return new RegExp('^' + strRegex)
   }, JSON.stringify
-)
-
-// TODO: Delete function and interface and use isChordLine instead
-export const getChordsAndRegex = memoize(
-  (options: IChordOptions = defaultChordOptions): IChordsAndRegex => ({
-    chords: getChords(options),
-    regex: getChordsRegex(options)
-  }), JSON.stringify
 )
 
 export const getChordType = memoize(
