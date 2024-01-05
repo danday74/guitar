@@ -1,5 +1,5 @@
 import { memoize } from 'lodash-es'
-import { IChordOptions } from '@components/chord-highlighter/interfaces/i-chord-options'
+import { defaultChordOptions, IChordOptions } from '@components/chord-highlighter/interfaces/i-chord-options'
 import { IChordsAndRegex } from '@components/chord-highlighter/interfaces/i-chords-and-regex'
 import { TChord } from '@components/chord-highlighter/types/t-chord'
 import { TNote } from '@components/chord-highlighter/types/t-note'
@@ -33,8 +33,6 @@ const getMyChords = (options: IChordOptions): TChord[] => {
     return acc
   }, [])
 }
-
-const defaultChordOptions: IChordOptions = { caseInsensitive: true, sharps: true, flats: true }
 
 // TODO: Does memoize work for all functions below?
 export const getChords = memoize(
