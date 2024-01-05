@@ -12,6 +12,5 @@
 * TODOs
 * ngFor and ngIf removal
 * getChordsRegex should have ^ ?
-* add isChordLine function instead of always using onlyIncludes (although onlyIncludes should remain also)
 * location of files - esp TChord and other common types and interfaces
 * what is lyrics and chords interface
