@@ -1,6 +1,7 @@
 import { getChordType } from 'src/app/components/chord-highlighter/data/chords'
 import fs from 'fs'
 
+// TODO: save in src/app/types?
 const file: string = 'src/app/components/chord-highlighter/types/t-chord.ts'
 
 console.log(`writing file ${file}\n`)
