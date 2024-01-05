@@ -14,4 +14,4 @@
 * getChordsRegex should have ^ ?
 * location of files - esp TChord and other common types and interfaces
 * what is lyrics and chords interface
-* chords should support dSuS4 DSUS4
+* chords should support dSuS4 ASUS4
