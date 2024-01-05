@@ -1,4 +1,3 @@
-* chords should be of type chord regex not string[]
 * ng add @angular/ssr
 * think about how it works properly - slide in drawers, tabs, progress circle indicators, etc
 * theme switch
@@ -14,3 +13,5 @@
 * ngFor and ngIf removal
 * getChordsRegex should have ^ ?
 * add isChordLine function instead of always using onlyIncludes (although onlyIncludes should remain also)
+* location of files - esp TChord and other common types and interfaces
+* what is lyrics and chords interface
