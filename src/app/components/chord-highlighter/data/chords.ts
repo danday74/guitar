@@ -34,16 +34,18 @@ const getMyChords = (options: IChordOptions): TChord[] => {
   }, [])
 }
 
+const defaultChordOptions: IChordOptions = { caseInsensitive: true, sharps: true, flats: true }
+
 // TODO: Does memoize work for all functions below?
 export const getChords = memoize(
-  (options: IChordOptions): TChord[] => {
+  (options: IChordOptions = defaultChordOptions): TChord[] => {
     return getMyChords(options)
   }, JSON.stringify
 )
 
 // TODO: Should regex start with ^
 export const getChordsRegex = memoize(
-  (options: IChordOptions): RegExp => {
+  (options: IChordOptions = defaultChordOptions): RegExp => {
     const chords: TChord[] = getChords(options)
     const strRegex: string = chords.sort((c1: TChord, c2: TChord): number => c2.length - c1.length).join('|')
     return new RegExp('^' + strRegex)
@@ -52,14 +54,14 @@ export const getChordsRegex = memoize(
 
 // TODO: Delete function and interface and use isChordLine instead
 export const getChordsAndRegex = memoize(
-  (options: IChordOptions): IChordsAndRegex => ({
+  (options: IChordOptions = defaultChordOptions): IChordsAndRegex => ({
     chords: getChords(options),
     regex: getChordsRegex(options)
   }), JSON.stringify
 )
 
 export const getChordType = memoize(
-  (options: IChordOptions): string => {
+  (options: IChordOptions = defaultChordOptions): string => {
     const chords: TChord[] = getChords(options)
     const quotedChords: string[] = chords.map((chord: TChord): string => `'${chord}'`)
     return quotedChords.join(' | ')
