@@ -1,6 +1,8 @@
 .cm-completionIcon-chord {
   &:after {
-    content: '\1D160'; // quaver 𝅘𝅥𝅮
+    content: '\266A'; // quaver ♪
+    // content: '\266E'; // natural ♮ ... not sure if, for example, Em chord is natural
+    // content: '\1D160'; // quaver 𝅘𝅥𝅮
   }
 }
 
