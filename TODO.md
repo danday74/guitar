@@ -15,3 +15,7 @@
 * location of files - esp TChord and other common types and interfaces
 * what is lyrics and chords interface
 * chords should support dSuS4 ASUS4
+
+chord-highlighter.component.*
+songs.component.*
+chords-and-lyrics-language.ts
