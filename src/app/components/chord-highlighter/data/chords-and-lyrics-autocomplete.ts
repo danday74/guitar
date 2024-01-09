@@ -18,7 +18,7 @@ export const chordsAndLyricsAutocomplete = (context: CompletionContext): Complet
   let options: Completion[]
 
   if (isChordLine) {
-    const chordsEasyType: TChord[] = getChords({ caseInsensitive: false, sharps: 'easyType', flats: 'easyType' })
+    const chordsEasyType: TChord[] = getChords({ case: 'standard', sharps: 'easyType', flats: 'easyType' })
 
     options = chordsEasyType.map((chord: TChord): Completion => {
       const standardChord: TChord = toStandard(chord)

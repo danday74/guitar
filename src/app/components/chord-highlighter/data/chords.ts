@@ -21,11 +21,15 @@ const getMyChords = (options: IChordOptions): TChord[] => {
   if (options.flats === 'all' || options.flats === 'easyType') myNotes = [...myNotes, ...notesFlatsEasyType]
 
   // TODO: Does this support a lowercase uppercase mix - dSuS4 - or all uppercase - DSUS4?
-  // TODO: Do we need caseInsensitive?
+  // TODO: Do we need case?
   return myNotes.reduce((acc: TChord[], note: TNote) => {
     const chords: TChord[] = variations.map((vary: TVariation): TChord => `${note}${vary}`)
-    acc = [...acc, ...chords]
-    if (options.caseInsensitive) {
+
+    if (options.case === 'all' || options.case === 'standard') {
+      acc = [...acc, ...chords]
+    }
+
+    if (options.case === 'all' || options.case === 'lower') {
       const lowerCaseChords: TChord[] = chords.map((chord: TChord) => chord.toLowerCase() as TChord)
       acc = [...acc, ...lowerCaseChords]
     }

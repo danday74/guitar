@@ -1,9 +1,10 @@
 import { TSharpsFlats } from '@components/chord-highlighter/types/t-sharps-flats'
+import { TChordCase } from '@components/chord-highlighter/types/t-chord-case'
 
 export interface IChordOptions {
-  caseInsensitive: boolean
+  case: TChordCase
   sharps: TSharpsFlats
   flats: TSharpsFlats
 }
 
-export const defaultChordOptions: IChordOptions = Object.freeze({ caseInsensitive: true, sharps: 'all', flats: 'all' })
+export const defaultChordOptions: IChordOptions = Object.freeze({ case: 'all', sharps: 'all', flats: 'all' })
