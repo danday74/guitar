@@ -15,10 +15,10 @@ const variations: TVariation[] = ['', 'm', 'm7', 'sus4']
 
 const getMyChords = (options: IChordOptions): TChord[] => {
   let myNotes: TNote[] = [...notes]
-  if (options.sharps === true || options.sharps === 'standard') myNotes = [...myNotes, ...notesSharpsStandard]
-  if (options.sharps === true || options.sharps === 'easyType') myNotes = [...myNotes, ...notesSharpsEasyType]
-  if (options.flats === true || options.flats === 'standard') myNotes = [...myNotes, ...notesFlatsStandard]
-  if (options.flats === true || options.flats === 'easyType') myNotes = [...myNotes, ...notesFlatsEasyType]
+  if (options.sharps === 'all' || options.sharps === 'standard') myNotes = [...myNotes, ...notesSharpsStandard]
+  if (options.sharps === 'all' || options.sharps === 'easyType') myNotes = [...myNotes, ...notesSharpsEasyType]
+  if (options.flats === 'all' || options.flats === 'standard') myNotes = [...myNotes, ...notesFlatsStandard]
+  if (options.flats === 'all' || options.flats === 'easyType') myNotes = [...myNotes, ...notesFlatsEasyType]
 
   // TODO: Does this support a lowercase uppercase mix - dSuS4 - or all uppercase - DSUS4?
   // TODO: Do we need caseInsensitive?

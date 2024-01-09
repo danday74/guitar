@@ -1,1 +1,1 @@
-export type TSharpsFlats = true | false | 'standard' | 'easyType'
+export type TSharpsFlats = 'all' | 'none' | 'standard' | 'easyType'

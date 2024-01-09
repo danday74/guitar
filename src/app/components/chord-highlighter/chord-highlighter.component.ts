@@ -86,7 +86,7 @@ export class ChordHighlighterComponent implements OnInit, AfterViewInit {
 
   // TODO: Make more efficient?
   private fixChordLine(line: string): string {
-    const chordsStandard: TChord[] = getChords({ caseInsensitive: false, flats: 'standard', sharps: 'standard' })
+    const chordsStandard: TChord[] = getChords({ caseInsensitive: false, sharps: 'standard', flats: 'standard' })
 
     let parts: string[] = line.split(' ')
 

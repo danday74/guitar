@@ -6,4 +6,4 @@ export interface IChordOptions {
   flats: TSharpsFlats
 }
 
-export const defaultChordOptions: IChordOptions = Object.freeze({ caseInsensitive: true, sharps: true, flats: true })
+export const defaultChordOptions: IChordOptions = Object.freeze({ caseInsensitive: true, sharps: 'all', flats: 'all' })
