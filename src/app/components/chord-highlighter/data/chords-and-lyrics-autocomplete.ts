@@ -4,8 +4,9 @@ import { getIsChordLine, toStandard } from '@utils/chord-utils'
 import { TChord } from '@components/chord-highlighter/types/t-chord'
 import { getChords } from '@components/chord-highlighter/data/chords'
 import { CompletionHelper } from '@components/chord-highlighter/data/completion-helper'
+import { chordOptions } from '@components/chord-highlighter/interfaces/i-chord-options'
 
-const chordsEasyType: TChord[] = getChords({ case: 'standard', sharps: 'easyType', flats: 'easyType' })
+const chordsEasyType: TChord[] = getChords(chordOptions.standardEasyType)
 
 const chordLineOptions: Completion[] = chordsEasyType.map((chord: TChord): Completion => {
   const chordStandard: TChord = toStandard(chord)
