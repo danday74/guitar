@@ -1,5 +1,5 @@
 import { LanguageSupport, StreamLanguage, StringStream } from '@codemirror/language'
-import { tags as t } from '@lezer/highlight'
+import { tags } from '@lezer/highlight'
 import { cloneDeep, noop } from 'lodash-es'
 import { getChordsRegex } from '@components/chord-highlighter/data/chords'
 import { getIsChordLine } from '@utils/chord-utils'
@@ -12,10 +12,10 @@ const initialState: IState = {}
 // https://codemirror.net/docs/ref/#language.StreamParser
 // https://stackoverflow.com/questions/75191956/how-to-properly-define-a-codemirror-language
 
-export const ChordsAndLyricsLanguage: StreamLanguage<IState> = StreamLanguage.define({
+const chordsAndLyricsLanguage: StreamLanguage<IState> = StreamLanguage.define({
 
   // A name for this language
-  name: 'ChordsAndLyrics',
+  name: 'chordsAndLyrics',
 
   // Produce a start state for the parser
   startState: (/* indentUnit: number */): IState => cloneDeep(initialState),
@@ -32,12 +32,8 @@ export const ChordsAndLyricsLanguage: StreamLanguage<IState> = StreamLanguage.de
     if (isChordLine) {
       const regex: RegExp = getChordsRegex()
       const match: boolean | RegExpMatchArray = stream.match(regex)
-      if (match) return 'keyword'
+      if (match) return 'chord'
     }
-
-    // return 'string'
-    // return 'operator'
-    // return 'number'
 
     stream.next()
     return null
@@ -54,23 +50,16 @@ export const ChordsAndLyricsLanguage: StreamLanguage<IState> = StreamLanguage.de
 
   // Default language data to attach to this language
   languageData: {
-    commentTokens: { line: ';' },
     autocomplete: chordsAndLyricsAutocomplete
   },
 
   // Extra tokens to use in this parser. When the tokenizer returns a token name that exists as a property in this object,
   // the corresponding tags will be assigned to the token
   tokenTable: {
-    db: t.keyword,
-    dot: t.punctuation,
-    collection: t.keyword,
-    get: t.keyword,
-    lParen: t.punctuation,
-    rParen: t.punctuation,
-    string: t.string
+    chord: tags.keyword
   }
 })
 
 export const chordsAndLyrics = (): LanguageSupport => {
-  return new LanguageSupport(ChordsAndLyricsLanguage)
+  return new LanguageSupport(chordsAndLyricsLanguage)
 }
