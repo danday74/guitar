@@ -18,8 +18,6 @@
 
 chord-highlighter.component.*
 songs.component.*
-chords-and-lyrics-language.ts
-chords-and-lyrics-autocomplete.ts
 
 pink highlight for women
 blue highlight for men
