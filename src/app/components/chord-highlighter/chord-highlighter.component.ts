@@ -9,6 +9,7 @@ import { ChangeSpec, Line } from '@codemirror/state'
 import { getChords } from '@components/chord-highlighter/data/chords'
 import { getIsChordLine, toStandard } from '@utils/chord-utils'
 import { TChord } from '@components/chord-highlighter/types/t-chord'
+import { chordOptions } from '@components/chord-highlighter/interfaces/i-chord-options'
 
 @Component({
   selector: 'app-chord-highlighter',
@@ -86,7 +87,7 @@ export class ChordHighlighterComponent implements OnInit, AfterViewInit {
 
   // TODO: Make more efficient?
   private fixChordLine(line: string): string {
-    const chordsStandard: TChord[] = getChords({ case: 'standard', sharps: 'standard', flats: 'standard' })
+    const chordsStandard: TChord[] = getChords(chordOptions.standard)
 
     let parts: string[] = line.split(' ')
 
