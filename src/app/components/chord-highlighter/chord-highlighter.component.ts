@@ -1,10 +1,9 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core'
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { NgIf } from '@angular/common'
 import { EditorView } from "codemirror"
 import { codemirrorExtensions } from '@components/chord-highlighter/data/codemirror-extensions'
 import { chordsAndLyrics } from '@components/chord-highlighter/data/chords-and-lyrics-language'
-import { noop } from 'lodash-es'
 import { ChangeSpec, Line } from '@codemirror/state'
 import { getIsChordLine, toStandard } from '@utils/chord-utils'
 import { TChord } from '@components/chord-highlighter/types/t-chord'
@@ -19,24 +18,21 @@ import { TChord } from '@components/chord-highlighter/types/t-chord'
   templateUrl: './chord-highlighter.component.html',
   styleUrl: './chord-highlighter.component.scss'
 })
-export class ChordHighlighterComponent implements OnInit, AfterViewInit {
+export class ChordHighlighterComponent implements AfterViewInit {
+  @ViewChild('editor') editor: ElementRef<HTMLDivElement>
 
   private view: EditorView
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.view = new EditorView({
       doc: '',
       extensions: [codemirrorExtensions({ theme: 'dracula', placeholder: 'verses' }), chordsAndLyrics()],
-      parent: document.getElementById('editor')
+      parent: this.editor.nativeElement
     })
   }
 
-  ngAfterViewInit() {
-    noop()
-  }
-
   // TODO: integrate with https://stackoverflow.com/a/72407564/1205871 possibly
-  clickMe() {
+  format() {
     let changes: ChangeSpec[] = []
     const doc = this.view.state.doc
     console.log(doc)
@@ -62,25 +58,6 @@ export class ChordHighlighterComponent implements OnInit, AfterViewInit {
     // TODO: dispatch as little as poss
     // https://codemirror.net/examples/change
     this.view.dispatch({ changes })
-
-
-    // const line: Line = this.view.state.doc.lineAt(context.pos)
-
-    // console.log(doc)
-    // console.log(doc.toString().split('\n'))
-    // // @ts-ignore
-    // console.log(doc.text)
-
-
-    // const text: string = this.view.state.doc.toString()
-    // console.log(text)
-    // let pos: number = 0
-    // const changes: ChangeSpec = []
-    // for (let next; (next = text.indexOf('\t', pos)) > -1;) {
-    //   changes.push({ from: next, to: next + 1, insert: '  ' })
-    //   pos = next + 1
-    // }
-    // this.view.dispatch({ changes })
   }
 
   // TODO: Make more efficient?
