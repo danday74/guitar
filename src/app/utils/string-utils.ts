@@ -6,6 +6,6 @@ export const onlyIncludes = (str: string, substrings: string[]): boolean => {
 }
 
 export const replaceAt = (str: string, idx: number, replacement: string): string => {
-  // TODO: test this is not buggy
+  if (idx > str.length) return str
   return str.substring(0, idx) + replacement + str.substring(idx + replacement.length)
 }
