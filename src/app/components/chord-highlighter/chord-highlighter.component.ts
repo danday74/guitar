@@ -4,7 +4,7 @@ import { NgIf } from '@angular/common'
 import { EditorView } from "codemirror"
 import { codemirrorExtensions } from '@components/chord-highlighter/data/codemirror-extensions'
 import { chordsAndLyrics } from '@components/chord-highlighter/data/chords-and-lyrics-language'
-import { ChangeSpec, Line } from '@codemirror/state'
+import { ChangeSpec, Line, Text } from '@codemirror/state'
 import { getIsChordLine, toStandard } from '@utils/chord-utils'
 import { TChord } from '@components/chord-highlighter/types/t-chord'
 
@@ -26,50 +26,58 @@ export class ChordHighlighterComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.view = new EditorView({
       doc: '',
-      extensions: [codemirrorExtensions({ theme: 'dracula', placeholder: 'verses' }), chordsAndLyrics()],
+      extensions: [
+        codemirrorExtensions({ theme: 'dracula', placeholder: 'verses' }),
+        chordsAndLyrics()
+      ],
       parent: this.editor.nativeElement
     })
   }
 
   // TODO: integrate with https://stackoverflow.com/a/72407564/1205871 possibly
   format() {
+
+    const doc: Text = this.view.state.doc
+
     let changes: ChangeSpec[] = []
-    const doc = this.view.state.doc
-    console.log(doc)
-    let line: Line
     let pos: number = 0
 
     while (pos <= doc.length) {
-      line = doc.lineAt(pos)
-      const isChordLine: boolean = getIsChordLine(line.text)
-      if (isChordLine) {
+
+      const line: Line = doc.lineAt(pos)
+      const lineText: string = this.fixChordLine(line.text)
+
+      if (lineText != null) {
         const change: ChangeSpec = {
           from: line.from,
           to: line.to,
-          insert: this.fixChordLine(line.text)
+          insert: lineText
         } as ChangeSpec
         changes = [...changes, change]
       }
 
-      console.log(line)
       pos = line.to + 1
     }
 
-    // TODO: dispatch as little as poss
     // https://codemirror.net/examples/change
-    this.view.dispatch({ changes })
+    if (changes.length) this.view.dispatch({ changes })
   }
 
-  // TODO: Make more efficient?
-  private fixChordLine(line: string): string {
+  // returns null if nothing to fix
+  private fixChordLine(origLineText: string): string {
 
-    let parts: string[] = line.split(' ')
+    const isChordLine: boolean = getIsChordLine(origLineText)
+    if (!isChordLine) return null
+
+    let parts: string[] = origLineText.split(' ')
 
     parts = parts.map((part: string): string => {
       if (part === '') return part
       // since this is a chord line, if we get here the part must be a chord
       return toStandard(part as TChord)
     })
-    return parts.join(' ')
+
+    const lineText: string = parts.join(' ')
+    return lineText === origLineText ? null : lineText
   }
 }
