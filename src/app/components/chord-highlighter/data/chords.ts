@@ -42,7 +42,6 @@ const getChords = memoize(
   }, JSON.stringify
 )
 
-// TODO: Should regex start with ^
 export const getChordsRegex = memoize(
   (options: IChordOptions): RegExp => {
     const chords: TChord[] = getChords(options)

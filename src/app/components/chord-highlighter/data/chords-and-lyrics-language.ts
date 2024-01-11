@@ -32,6 +32,7 @@ const chordsAndLyricsLanguage: StreamLanguage<IState> = StreamLanguage.define({
 
     if (isChordLine) {
       const regex: RegExp = getChordsRegex(chordOptions.standardAll)
+      // https://codemirror.net/docs/ref/#language.StringStream.match
       const match: boolean | RegExpMatchArray = stream.match(regex)
       if (match) return 'chord'
     }
