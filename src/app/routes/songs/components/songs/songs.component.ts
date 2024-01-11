@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { ChordHighlighterComponent } from '@components/chord-highlighter/chord-highlighter.component'
 
 @Component({
@@ -10,9 +10,4 @@ import { ChordHighlighterComponent } from '@components/chord-highlighter/chord-h
   templateUrl: './songs.component.html',
   styleUrl: './songs.component.scss'
 })
-export class SongsComponent implements OnInit {
-  ngOnInit() {
-    // Prism.highlightAll()
-    console.log('hi')
-  }
-}
+export class SongsComponent {}
