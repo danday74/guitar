@@ -4,6 +4,7 @@ import { cloneDeep, noop } from 'lodash-es'
 import { getChordsRegex } from '@components/chord-highlighter/data/chords'
 import { getIsChordLine } from '@utils/chord-utils'
 import { chordsAndLyricsAutocomplete } from '@components/chord-highlighter/data/chords-and-lyrics-autocomplete'
+import { chordOptions } from '@components/chord-highlighter/interfaces/i-chord-options'
 
 interface IState {}
 
@@ -30,7 +31,7 @@ const chordsAndLyricsLanguage: StreamLanguage<IState> = StreamLanguage.define({
     const isChordLine: boolean = getIsChordLine(stream.string)
 
     if (isChordLine) {
-      const regex: RegExp = getChordsRegex()
+      const regex: RegExp = getChordsRegex(chordOptions.standardAll)
       const match: boolean | RegExpMatchArray = stream.match(regex)
       if (match) return 'chord'
     }
