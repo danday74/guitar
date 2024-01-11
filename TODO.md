@@ -2,7 +2,7 @@
 * think about how it works properly - slide in drawers, tabs, progress circle indicators, etc
 * theme switch
 * transpose
-* all to sharps, all to flats
+* flats to sharps, sharps to flats
 * remove unwanted codemirror plugins
 * consider zebra stripes codemirror plugin
 * thin scrollbar 4 code completion
