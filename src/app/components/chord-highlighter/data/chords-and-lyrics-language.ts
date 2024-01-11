@@ -10,6 +10,8 @@ interface IState {}
 
 const initialState: IState = {}
 
+const chordsRegex: RegExp = getChordsRegex(chordOptions.standardAll)
+
 // https://codemirror.net/docs/ref/#language.StreamParser
 // https://stackoverflow.com/questions/75191956/how-to-properly-define-a-codemirror-language
 
@@ -31,9 +33,8 @@ const chordsAndLyricsLanguage: StreamLanguage<IState> = StreamLanguage.define({
     const isChordLine: boolean = getIsChordLine(stream.string)
 
     if (isChordLine) {
-      const regex: RegExp = getChordsRegex(chordOptions.standardAll)
       // https://codemirror.net/docs/ref/#language.StringStream.match
-      const match: boolean | RegExpMatchArray = stream.match(regex)
+      const match: boolean | RegExpMatchArray = stream.match(chordsRegex)
       if (match) return 'chord'
     }
 
