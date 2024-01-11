@@ -1,5 +1,5 @@
 import { memoize } from 'lodash-es'
-import { IChordOptions } from '@components/chord-highlighter/interfaces/i-chord-options'
+import { chordOptions, IChordOptions } from '@components/chord-highlighter/interfaces/i-chord-options'
 import { TChord } from '@components/chord-highlighter/types/t-chord'
 import { TNote } from '@components/chord-highlighter/types/t-note'
 import { TVariation } from '@components/chord-highlighter/types/t-variation'
@@ -38,7 +38,7 @@ const getMyChords = (options: IChordOptions): TChord[] => {
 }
 
 // TODO: Does memoize work for all functions below?
-export const getChords = memoize(
+const getChords = memoize(
   (options: IChordOptions): TChord[] => {
     return getMyChords(options)
   }, JSON.stringify
@@ -60,3 +60,9 @@ export const getChordType = memoize(
     return quotedChords.join(' | ')
   }, JSON.stringify
 )
+
+export const chords: { [key in 'standard' | 'lowerAll' | 'standardEasyType']: TChord[] } = {
+  standard: getChords(chordOptions.standard),
+  lowerAll: getChords(chordOptions.lowerAll),
+  standardEasyType: getChords(chordOptions.standardEasyType)
+}
