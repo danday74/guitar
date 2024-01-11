@@ -1,5 +1,5 @@
 import { memoize } from 'lodash-es'
-import { defaultChordOptions, IChordOptions } from '@components/chord-highlighter/interfaces/i-chord-options'
+import { IChordOptions } from '@components/chord-highlighter/interfaces/i-chord-options'
 import { TChord } from '@components/chord-highlighter/types/t-chord'
 import { TNote } from '@components/chord-highlighter/types/t-note'
 import { TVariation } from '@components/chord-highlighter/types/t-variation'
@@ -39,22 +39,22 @@ const getMyChords = (options: IChordOptions): TChord[] => {
 
 // TODO: Does memoize work for all functions below?
 export const getChords = memoize(
-  (options: IChordOptions = defaultChordOptions): TChord[] => {
+  (options: IChordOptions): TChord[] => {
     return getMyChords(options)
   }, JSON.stringify
 )
 
 // TODO: Should regex start with ^
 export const getChordsRegex = memoize(
-  (options: IChordOptions = defaultChordOptions): RegExp => {
+  (options: IChordOptions): RegExp => {
     const chords: TChord[] = getChords(options)
     const strRegex: string = chords.sort((c1: TChord, c2: TChord): number => c2.length - c1.length).join('|')
-    return new RegExp('^' + strRegex)
+    return new RegExp('^' + strRegex, 'i')
   }, JSON.stringify
 )
 
 export const getChordType = memoize(
-  (options: IChordOptions = defaultChordOptions): string => {
+  (options: IChordOptions): string => {
     const chords: TChord[] = getChords(options)
     const quotedChords: string[] = chords.map((chord: TChord): string => `'${chord}'`)
     return quotedChords.join(' | ')
