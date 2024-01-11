@@ -6,10 +6,8 @@ import { codemirrorExtensions } from '@components/chord-highlighter/data/codemir
 import { chordsAndLyrics } from '@components/chord-highlighter/data/chords-and-lyrics-language'
 import { noop } from 'lodash-es'
 import { ChangeSpec, Line } from '@codemirror/state'
-import { getChords } from '@components/chord-highlighter/data/chords'
 import { getIsChordLine, toStandard } from '@utils/chord-utils'
 import { TChord } from '@components/chord-highlighter/types/t-chord'
-import { chordOptions } from '@components/chord-highlighter/interfaces/i-chord-options'
 
 @Component({
   selector: 'app-chord-highlighter',
@@ -87,15 +85,13 @@ export class ChordHighlighterComponent implements OnInit, AfterViewInit {
 
   // TODO: Make more efficient?
   private fixChordLine(line: string): string {
-    const chordsStandard: TChord[] = getChords(chordOptions.standard)
 
     let parts: string[] = line.split(' ')
 
     parts = parts.map((part: string): string => {
       if (part === '') return part
       // since this is a chord line, if we get here the part must be a chord
-      const chord: TChord = toStandard(part as TChord)
-      return chordsStandard.find((chordStandard: TChord): boolean => chord.toLowerCase() === chordStandard.toLowerCase())
+      return toStandard(part as TChord)
     })
     return parts.join(' ')
   }
