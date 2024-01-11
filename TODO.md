@@ -15,9 +15,6 @@
 * location of files - esp TChord and other common types and interfaces
 * what is lyrics and chords interface
 * chords should support dSuS4 ASUS4
+* pink highlight for women, blue highlight for men
 
-chord-highlighter.component.*
 songs.component.*
-
-pink highlight for women
-blue highlight for men
