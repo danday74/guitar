@@ -6,6 +6,7 @@
 * theme switch?
 
 * auto formatting
+* make it scroll horizontally and vertically if it gets too big for container
 
 after chords and lyrics entered?
 * flats to sharps, sharps to flats
