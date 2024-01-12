@@ -1,5 +1,5 @@
-import { getChordType } from 'src/app/components/chord-highlighter/data/chords'
-import { chordOptions } from 'src/app/components/chord-highlighter/interfaces/i-chord-options'
+import { getChordType } from '@components/chord-highlighter/data/chords'
+import { chordOptions } from '@components/chord-highlighter/interfaces/i-chord-options'
 import fs from 'fs'
 
 // TODO: save in src/app/types?

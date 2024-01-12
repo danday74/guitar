@@ -35,7 +35,6 @@ const getMyChords = (options: IChordOptions): TChord[] => {
   }, [])
 }
 
-// TODO: Does memoize work for all functions below?
 const getChords = memoize(
   (options: IChordOptions): TChord[] => {
     return getMyChords(options)
