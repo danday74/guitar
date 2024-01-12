@@ -1,17 +1,25 @@
-* TODOs
-* flats to sharps, sharps to flats
-* thin scrollbar 4 code completion
-* theme switch
-* selection not highlighting properly
-* transpose
-* think about how it works properly - slide in drawers, tabs, progress circle indicators, etc
-* remove unwanted codemirror plugins
 * consider zebra stripes codemirror plugin
+* remove unwanted codemirror plugins
+* selection not highlighting properly
+
+* thin scrollbar 4 code completion
+* theme switch?
+
+* auto formatting
+
+after chords and lyrics entered?
+* flats to sharps, sharps to flats
+* transpose
+* pink highlight for women, blue highlight for men
+
+* think about how it works - slide in drawers, tabs, progress circle indicators, etc
+* enforce rules with err message - e.g. all verses must be same number of lines, chords line must be above lyric line
+
 * codemirror autofocus
 * consider signals
 * ngFor and ngIf removal
-* getChordsRegex should have ^ ?
 * location of files - esp TChord and other common types and interfaces
 * what is lyrics and chords interface
-* pink highlight for women, blue highlight for men
 * ng add @angular/ssr
+
+* TODOs
