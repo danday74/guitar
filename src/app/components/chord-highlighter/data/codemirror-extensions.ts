@@ -18,6 +18,7 @@ import { highlightSelectionMatches, searchKeymap } from '@codemirror/search'
 import { lintKeymap } from '@codemirror/lint'
 import { ICodemirrorExtensionOptions } from '@components/chord-highlighter/interfaces/i-codemirror-extension-options'
 import { birdsOfParadise, dracula } from 'thememirror'
+import { zebraStripes } from '@components/chord-highlighter/data/zebra-stripes'
 
 // see basicSetup from node_modules/codemirror/dist/index.js
 
@@ -50,7 +51,8 @@ const codemirrorExtensions = (options: ICodemirrorExtensionOptions): Extension[]
       ...lintKeymap
     ]),
     // additional extensions
-    placeholder(options.placeholder)
+    placeholder(options.placeholder),
+    zebraStripes({ step: 2 })
   ]
 
   // https://thememirror.net
