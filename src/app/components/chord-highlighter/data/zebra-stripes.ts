@@ -1,9 +1,9 @@
-import { Decoration, DecorationSet, EditorView, ViewPlugin, ViewUpdate } from "@codemirror/view"
-import { Extension, Facet, Line, RangeSet, RangeSetBuilder } from "@codemirror/state"
+import { Decoration, DecorationSet, EditorView, ViewPlugin, ViewUpdate } from '@codemirror/view'
+import { Extension, Facet, Line, RangeSet, RangeSetBuilder } from '@codemirror/state'
 
 const baseTheme: Extension = EditorView.baseTheme({
-  "&light .cm-zebraStripe": { backgroundColor: "#d4fafa" },
-  "&dark .cm-zebraStripe": { backgroundColor: "#1a2727" }
+  '&light .cm-zebraStripe': { backgroundColor: '#d4fafa' },
+  '&dark .cm-zebraStripe': { backgroundColor: '#1a2727' }
 })
 
 const stepSize: Facet<number, number> = Facet.define<number, number>({
@@ -19,7 +19,7 @@ export const zebraStripes = (options: { step?: number } = {}): Extension => {
 }
 
 const stripe: Decoration = Decoration.line({
-  attributes: { class: "cm-zebraStripe" }
+  attributes: { class: 'cm-zebraStripe' }
 })
 
 const stripeDeco = (view: EditorView): RangeSet<Decoration> => {
@@ -28,7 +28,7 @@ const stripeDeco = (view: EditorView): RangeSet<Decoration> => {
   for (const { from, to } of view.visibleRanges) {
     for (let pos: number = from; pos <= to;) {
       const line: Line = view.state.doc.lineAt(pos)
-      if ((line.number % step) == 0)
+      if ((line.number % step) === 0)
         builder.add(line.from, line.from, stripe)
       pos = line.to + 1
     }
