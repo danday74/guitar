@@ -1,4 +1,4 @@
-* consider zebra stripes codemirror plugin
+* zebra stripes codemirror plugin - tweak colors
 * remove unwanted codemirror plugins
 * selection not highlighting properly
 
