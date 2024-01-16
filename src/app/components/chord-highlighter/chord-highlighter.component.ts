@@ -27,7 +27,7 @@ export class ChordHighlighterComponent implements AfterViewInit {
     this.view = new EditorView({
       doc: '',
       extensions: [
-        codemirrorExtensions({ theme: 'dracula', placeholder: 'verses' }),
+        codemirrorExtensions({ placeholder: 'verses' }),
         chordsAndLyrics()
       ],
       parent: this.editor.nativeElement
