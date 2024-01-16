@@ -5,7 +5,7 @@
 * thin scrollbar 4 code completion
 * theme switch?
 
-* auto formatting
+* auto formatting (on change line?)
 * make it scroll horizontally and vertically if it gets too big for container
 
 after chords and lyrics entered?
