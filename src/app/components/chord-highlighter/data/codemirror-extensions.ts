@@ -1,5 +1,4 @@
 import {
-  crosshairCursor,
   drawSelection,
   dropCursor,
   highlightActiveLine,
@@ -7,22 +6,21 @@ import {
   highlightSpecialChars,
   keymap,
   lineNumbers,
-  placeholder,
-  rectangularSelection
+  placeholder
 } from '@codemirror/view'
 import { defaultKeymap, history, historyKeymap } from '@codemirror/commands'
-import { bracketMatching, defaultHighlightStyle, foldGutter, foldKeymap, indentOnInput, syntaxHighlighting } from '@codemirror/language'
-import { EditorState, Extension } from '@codemirror/state'
-import { autocompletion, closeBrackets, closeBracketsKeymap, completionKeymap } from '@codemirror/autocomplete'
-import { highlightSelectionMatches, searchKeymap } from '@codemirror/search'
+import { defaultHighlightStyle, foldGutter, foldKeymap, syntaxHighlighting } from '@codemirror/language'
+import { Extension } from '@codemirror/state'
+import { autocompletion, closeBracketsKeymap, completionKeymap } from '@codemirror/autocomplete'
+import { searchKeymap } from '@codemirror/search'
 import { lintKeymap } from '@codemirror/lint'
 import { ICodemirrorExtensionOptions } from '@components/chord-highlighter/interfaces/i-codemirror-extension-options'
-import { birdsOfParadise, dracula } from 'thememirror'
 import { zebraStripes } from '@components/chord-highlighter/data/zebra-stripes'
 
 // see basicSetup from node_modules/codemirror/dist/index.js
 
 const codemirrorExtensions = (options: ICodemirrorExtensionOptions): Extension[] => {
+  // noinspection UnnecessaryLocalVariableJS
   const extensions: Extension[] = [
     lineNumbers(),
     highlightActiveLineGutter(),
@@ -31,16 +29,16 @@ const codemirrorExtensions = (options: ICodemirrorExtensionOptions): Extension[]
     foldGutter(),
     drawSelection(),
     dropCursor(),
-    EditorState.allowMultipleSelections.of(true),
-    indentOnInput(),
+    // EditorState.allowMultipleSelections.of(true),
+    // indentOnInput(),
     syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
-    bracketMatching(),
-    closeBrackets(),
+    // bracketMatching(),
+    // closeBrackets(),
     autocompletion(),
-    rectangularSelection(),
-    crosshairCursor(),
+    // rectangularSelection(),
+    // crosshairCursor(),
     highlightActiveLine(),
-    highlightSelectionMatches(),
+    // highlightSelectionMatches(),
     keymap.of([
       ...closeBracketsKeymap,
       ...defaultKeymap,
@@ -55,15 +53,7 @@ const codemirrorExtensions = (options: ICodemirrorExtensionOptions): Extension[]
     zebraStripes({ step: 2 })
   ]
 
-  // https://thememirror.net
-  switch (options.theme) {
-    case 'birdsOfParadise':
-      return [...extensions, birdsOfParadise]
-    case 'dracula':
-      return [...extensions, dracula]
-    default:
-      return extensions
-  }
+  return extensions
 }
 
 export { codemirrorExtensions }
