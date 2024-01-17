@@ -2,8 +2,8 @@ import { Decoration, DecorationSet, EditorView, ViewPlugin, ViewUpdate } from '@
 import { Extension, Facet, Line, RangeSet, RangeSetBuilder } from '@codemirror/state'
 
 const baseTheme: Extension = EditorView.baseTheme({
-  '&light .cm-zebraStripe': { backgroundColor: '#d4fafa' },
-  '&dark .cm-zebraStripe': { backgroundColor: '#1a2727' }
+  '&light .cm-zebraStripe': { backgroundColor: 'red' },
+  '&dark .cm-zebraStripe': { backgroundColor: '#24272e' }
 })
 
 const stepSize: Facet<number, number> = Facet.define<number, number>({

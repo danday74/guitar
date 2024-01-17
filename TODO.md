@@ -2,6 +2,10 @@
 * remove unwanted codemirror plugins
 * selection not highlighting properly
 
+* page scrolls
+
+* zebra stripes not on alternative lines but on chord lines?
+
 * thin scrollbar 4 code completion
 * theme switch?
 

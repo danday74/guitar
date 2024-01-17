@@ -1,13 +1,4 @@
-import {
-  drawSelection,
-  dropCursor,
-  highlightActiveLine,
-  highlightActiveLineGutter,
-  highlightSpecialChars,
-  keymap,
-  lineNumbers,
-  placeholder
-} from '@codemirror/view'
+import { drawSelection, dropCursor, highlightActiveLine, highlightActiveLineGutter, highlightSpecialChars, keymap, placeholder } from '@codemirror/view'
 import { defaultKeymap, history, historyKeymap } from '@codemirror/commands'
 import { defaultHighlightStyle, foldGutter, foldKeymap, syntaxHighlighting } from '@codemirror/language'
 import { Extension } from '@codemirror/state'
@@ -16,13 +7,14 @@ import { searchKeymap } from '@codemirror/search'
 import { lintKeymap } from '@codemirror/lint'
 import { ICodemirrorExtensionOptions } from '@components/chord-highlighter/interfaces/i-codemirror-extension-options'
 import { zebraStripes } from '@components/chord-highlighter/data/zebra-stripes'
+import { oneDark } from '@codemirror/theme-one-dark'
 
 // see basicSetup from node_modules/codemirror/dist/index.js
 
 const codemirrorExtensions = (options: ICodemirrorExtensionOptions): Extension[] => {
   // noinspection UnnecessaryLocalVariableJS
   const extensions: Extension[] = [
-    lineNumbers(),
+    // lineNumbers(),
     highlightActiveLineGutter(),
     highlightSpecialChars(),
     history(),
@@ -50,7 +42,8 @@ const codemirrorExtensions = (options: ICodemirrorExtensionOptions): Extension[]
     ]),
     // additional extensions
     placeholder(options.placeholder),
-    zebraStripes({ step: 2 })
+    zebraStripes({ step: 2 }),
+    oneDark
   ]
 
   return extensions
