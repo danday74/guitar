@@ -7,7 +7,7 @@
 * thin scrollbar 4 code completion
 * rethink color scheme - including codemirror (default color scheme has no bg)
 * linting extension
-
+* undo and redo buttons? (history extension)
 * auto formatting (on change line?)
 * make it scroll horizontally and vertically if it gets too big for container
 

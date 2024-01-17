@@ -1,6 +1,6 @@
 import { drawSelection, dropCursor, highlightActiveLine, highlightActiveLineGutter, highlightSpecialChars, keymap, placeholder } from '@codemirror/view'
 import { defaultKeymap, history, historyKeymap } from '@codemirror/commands'
-import { defaultHighlightStyle, foldGutter, foldKeymap, syntaxHighlighting } from '@codemirror/language'
+import { foldKeymap } from '@codemirror/language'
 import { Extension } from '@codemirror/state'
 import { autocompletion, closeBracketsKeymap, completionKeymap } from '@codemirror/autocomplete'
 import { searchKeymap } from '@codemirror/search'
@@ -18,12 +18,12 @@ const codemirrorExtensions = (options: ICodemirrorExtensionOptions): Extension[]
     highlightActiveLineGutter(),
     highlightSpecialChars(),
     history(),
-    foldGutter(),
+    // foldGutter(),
     drawSelection(),
     dropCursor(),
     // EditorState.allowMultipleSelections.of(true),
     // indentOnInput(),
-    syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
+    // syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
     // bracketMatching(),
     // closeBrackets(),
     autocompletion(),
