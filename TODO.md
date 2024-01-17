@@ -1,15 +1,12 @@
-* zebra stripes codemirror plugin - tweak colors
 * remove unwanted codemirror plugins
-* selection not highlighting properly
 
 * page scrolls
-* did themes not work coz I used it wrong in extensions list?
 
 * zebra stripes not on alternative lines but on chord lines?
 
 * thin scrollbar 4 code completion
-* theme switch?
 * rethink color scheme - including codemirror (default color scheme has no bg)
+* linting extension
 
 * auto formatting (on change line?)
 * make it scroll horizontally and vertically if it gets too big for container
