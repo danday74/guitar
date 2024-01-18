@@ -1,4 +1,5 @@
 * remove unwanted codemirror plugins
+* spellcheck on lyrics
 
 * page scrolls
 
