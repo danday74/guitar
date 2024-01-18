@@ -3,10 +3,11 @@ import { defaultKeymap, history, historyKeymap } from '@codemirror/commands'
 import { Extension } from '@codemirror/state'
 import { autocompletion, completionKeymap } from '@codemirror/autocomplete'
 import { searchKeymap } from '@codemirror/search'
-import { lintKeymap } from '@codemirror/lint'
+import { lintGutter, lintKeymap } from '@codemirror/lint'
 import { ICodemirrorExtensionOptions } from '@components/chord-highlighter/interfaces/i-codemirror-extension-options'
 import { zebraStripes } from '@components/chord-highlighter/data/zebra-stripes'
 import { oneDark } from '@codemirror/theme-one-dark'
+import { myLinter } from '@components/chord-highlighter/data/my-linter'
 
 // see basicSetup from node_modules/codemirror/dist/index.js
 
@@ -40,9 +41,11 @@ const codemirrorExtensions = (options: ICodemirrorExtensionOptions): Extension[]
       ...lintKeymap
     ]),
     // additional extensions
+    lintGutter(),
     placeholder(options.placeholder),
     zebraStripes({ step: 2 }),
-    oneDark
+    oneDark,
+    myLinter()
   ]
 
   return extensions
