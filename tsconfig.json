@@ -31,6 +31,7 @@
       "@interfaces/*": ["src/app/interfaces/*"],
       "@routes/*": ["src/app/routes/*"],
       "@services/*": ["src/app/services/*"],
+      "@ttypes/*": ["src/app/ttypes/*"],
       "@utils/*": ["src/app/utils/*"]
     }
   },
