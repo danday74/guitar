@@ -2,9 +2,10 @@
 * remove unwanted codemirror plugins
 * lint action buttons don't remove whole line
 * spellcheck on lyrics
-* should TLineType be in root folder or with other types?
+* should TLineType be in root folder or with other types? ILineType totally different level!
 * format line endings to LR
-
+* lint repeat chords
+* dont lint until submit or on request?
 * page scrolls
 
 * zebra stripes not on alternative lines but on chord lines?
