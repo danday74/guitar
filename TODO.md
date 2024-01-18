@@ -1,6 +1,7 @@
 * remove unwanted codemirror plugins
 * lint action buttons don't remove whole line
 * spellcheck on lyrics
+* should TLineType be in root folder or with other types?
 
 * page scrolls
 
