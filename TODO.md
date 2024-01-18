@@ -11,6 +11,7 @@
 
 * thin scrollbar 4 code completion
 * rethink color scheme - including codemirror (default color scheme has no bg)
+  nice glowing white color for lyrics - professional blue smooth
 * linting extension
 * undo and redo buttons? (history extension)
 * auto formatting (on change line?)
