@@ -1,11 +1,13 @@
 * remove unwanted codemirror plugins
 * lint action buttons don't remove whole line
-* spellcheck on lyrics
+* css class for different types of lint errors to support diff styles - remove squiggly underlines?
+* spellcheck on lyrics - with typo-js
 * should TLineType be in root folder or with other types? ILineType totally different level!
 * format line endings to LR
 * lint repeat chords
 * dont lint until submit or on request?
 * page scrolls
+* solid line (emdash) if multiple hyphens?
 
 * zebra stripes not on alternative lines but on chord lines?
 
@@ -31,5 +33,6 @@ after chords and lyrics entered?
 * location of files - esp TChord and other common types and interfaces
 * what is lyrics and chords interface
 * ng add @angular/ssr
+* spellcheck enhance (add words) - may need a diff lib - e.g. nspell (but low usage and poor updates) - works with dictionary-en and other dicts
 
 * TODOs
