@@ -1,8 +1,7 @@
 import { drawSelection, dropCursor, highlightActiveLine, highlightActiveLineGutter, highlightSpecialChars, keymap, placeholder } from '@codemirror/view'
 import { defaultKeymap, history, historyKeymap } from '@codemirror/commands'
-import { foldKeymap } from '@codemirror/language'
 import { Extension } from '@codemirror/state'
-import { autocompletion, closeBracketsKeymap, completionKeymap } from '@codemirror/autocomplete'
+import { autocompletion, completionKeymap } from '@codemirror/autocomplete'
 import { searchKeymap } from '@codemirror/search'
 import { lintKeymap } from '@codemirror/lint'
 import { ICodemirrorExtensionOptions } from '@components/chord-highlighter/interfaces/i-codemirror-extension-options'
@@ -32,12 +31,12 @@ const codemirrorExtensions = (options: ICodemirrorExtensionOptions): Extension[]
     highlightActiveLine(),
     // highlightSelectionMatches(),
     keymap.of([
-      ...closeBracketsKeymap,
+      // ...closeBracketsKeymap,
       ...defaultKeymap,
-      ...searchKeymap,
-      ...historyKeymap,
-      ...foldKeymap,
-      ...completionKeymap,
+      ...searchKeymap, // search
+      ...historyKeymap, // history
+      // ...foldKeymap,
+      ...completionKeymap, // autocompletion
       ...lintKeymap
     ]),
     // additional extensions
