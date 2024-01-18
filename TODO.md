@@ -1,3 +1,4 @@
+* my-linter.ts
 * remove unwanted codemirror plugins
 * lint action buttons don't remove whole line
 * spellcheck on lyrics
