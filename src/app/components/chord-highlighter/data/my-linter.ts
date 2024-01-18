@@ -4,13 +4,27 @@ import { TLineType } from '@ttypes/t-line-type'
 import { getLineType } from '@utils/chord-utils'
 import { get } from 'lodash-es'
 import { EditorView } from '@codemirror/view'
+import { ILineType } from '@components/chord-highlighter/interfaces/i-line-type'
+
+const createDiagnostic = (myLine: ILineType, message: string): Diagnostic => ({
+  from: myLine.line.from,
+  to: myLine.line.to,
+  severity: 'warning',
+  message,
+  actions: [{
+    name: 'remove',
+    apply(view: EditorView, from: number, to: number) {
+      return view.dispatch({ changes: { from, to } })
+    }
+  }]
+})
 
 export const myLinter = () => {
   return linter((view: EditorView) => {
     const diagnostics: Diagnostic[] = []
 
     const doc: Text = view.state.doc
-    const myLines: any[] = []
+    const myLines: ILineType[] = []
 
     let pos: number = 0
 
@@ -21,43 +35,21 @@ export const myLinter = () => {
       pos = line.to + 1
     }
 
-    myLines.forEach((myLine, i) => {
-      const prevLine = get(myLines, i - 1, null)
-      const nextLine = get(myLines, i + 1, null)
+    myLines.forEach((myLine: ILineType, i: number) => {
+      const prevLine: ILineType = get(myLines, i - 1, null)
+      const nextLine: ILineType = get(myLines, i + 1, null)
 
       if (myLine.lineType === 'chord') {
         if (nextLine == null || nextLine.lineType !== 'lyric') {
-
-          diagnostics.push({
-            from: myLine.line.from,
-            to: myLine.line.to,
-            severity: 'warning',
-            message: 'chords - line after must be lyrics',
-            actions: [{
-              name: 'remove',
-              apply(view, from, to) {
-                return view.dispatch({ changes: { from, to } })
-              }
-            }]
-          })
+          const diagnostic: Diagnostic = createDiagnostic(myLine, 'chords - line after must be lyrics')
+          diagnostics.push(diagnostic)
         }
       }
 
       if (myLine.lineType === 'lyric') {
         if (prevLine == null || prevLine.lineType !== 'chord') {
-
-          diagnostics.push({
-            from: myLine.line.from,
-            to: myLine.line.to,
-            severity: 'warning',
-            message: 'lyrics - line before must be chords',
-            actions: [{
-              name: 'remove',
-              apply(view, from, to) {
-                return view.dispatch({ changes: { from, to } })
-              }
-            }]
-          })
+          const diagnostic: Diagnostic = createDiagnostic(myLine, 'lyrics - line before must be chords')
+          diagnostics.push(diagnostic)
         }
       }
     })
