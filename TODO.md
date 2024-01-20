@@ -13,6 +13,7 @@
 * spelling ignore / add to dict (needs user accounts)
 * lang select (for spelling - needs user accounts)
 * lint errors should not show immediately, they should only show after failed submit (excluding typos which should always show)
+* spelling suggestions color is purple (on popup) but underline is red - doesn't feel consistent
 
 * zebra stripes not on alternative lines but on chord lines?
 
