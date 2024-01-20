@@ -11,6 +11,7 @@
 * logging util
 * login / logout (needed for adding songs)
 * spelling ignore / add to dict (needs user accounts)
+* lang select (for spelling - needs user accounts)
 
 * zebra stripes not on alternative lines but on chord lines?
 
