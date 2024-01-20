@@ -12,6 +12,7 @@
 * login / logout (needed for adding songs)
 * spelling ignore / add to dict (needs user accounts)
 * lang select (for spelling - needs user accounts)
+* lint errors should not show immediately, they should only show after failed submit (excluding typos which should always show)
 
 * zebra stripes not on alternative lines but on chord lines?
 
