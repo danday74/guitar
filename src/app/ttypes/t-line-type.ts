@@ -1,1 +1,1 @@
-export type TLineType = 'chord' | 'lyric' | 'blank'
+export type TLineType = 'chords' | 'lyrics' | 'blank'
