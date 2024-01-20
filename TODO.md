@@ -8,6 +8,8 @@
 * dont lint until submit or on request?
 * page scrolls
 * solid line (emdash) if multiple hyphens?
+* logging util
+* login / logout (needed for adding songs)
 
 * zebra stripes not on alternative lines but on chord lines?
 
