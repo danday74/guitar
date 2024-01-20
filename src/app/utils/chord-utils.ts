@@ -16,7 +16,12 @@ export const getIsChordLine = (line: string): boolean => {
 }
 
 export const getLineType = (line: string): TLineType => {
-  if (getIsChordLine(line)) return 'chord'
+  if (getIsChordLine(line)) return 'chords'
   if (line.trim() === '') return 'blank'
-  return 'lyric'
+  return 'lyrics'
+}
+
+export const getChordCount = (line: string): number => {
+  if (!getIsChordLine(line)) return null
+  return line.trim().split(/\s+/).length
 }
