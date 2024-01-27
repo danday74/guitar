@@ -33,6 +33,8 @@ after chords and lyrics entered?
 * think about how it works - slide in drawers, tabs, progress circle indicators, etc
 * enforce rules with err message - e.g. all verses must be same number of lines, chords line must be above lyric line
 
+* move to Jest (experimental in ng17)
+
 * codemirror autofocus
 * consider signals
 * ngFor and ngIf removal
