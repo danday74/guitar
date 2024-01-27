@@ -6,11 +6,15 @@ import { get } from 'lodash-es'
 import { EditorView } from '@codemirror/view'
 import { ILineType } from '@components/chord-highlighter/interfaces/i-line-type'
 
-const createDiagnostic = (myLine: ILineType, message: string): Diagnostic => ({
+// https://codemirror.net/examples/lint
+// https://codemirror.net/docs/ref/#lint.Diagnostic
+
+const createDiagnostic = (myLine: ILineType, message: string, markClass: string): Diagnostic => ({
   from: myLine.line.from,
   to: myLine.line.to,
   severity: 'warning',
   message,
+  markClass,
   actions: [{
     name: 'remove',
     apply(view: EditorView, from: number, to: number) {
@@ -39,16 +43,18 @@ export const myLinter = () => {
       const prevLine: ILineType = get(myLines, i - 1, null)
       const nextLine: ILineType = get(myLines, i + 1, null)
 
-      if (myLine.lineType === 'chord') {
-        if (nextLine == null || nextLine.lineType !== 'lyric') {
-          const diagnostic: Diagnostic = createDiagnostic(myLine, 'chords - line after must be lyrics')
+      // TODO: Only show after submit failure (use state?)
+      if (myLine.lineType === 'chords') {
+        if (nextLine == null || nextLine.lineType !== 'lyrics') {
+          const diagnostic: Diagnostic = createDiagnostic(myLine, 'chords - line after must be lyrics', 'chords-line-after')
           diagnostics.push(diagnostic)
         }
       }
 
-      if (myLine.lineType === 'lyric') {
-        if (prevLine == null || prevLine.lineType !== 'chord') {
-          const diagnostic: Diagnostic = createDiagnostic(myLine, 'lyrics - line before must be chords')
+      // TODO: Only show after submit failure (use state?)
+      if (myLine.lineType === 'lyrics') {
+        if (prevLine == null || prevLine.lineType !== 'chords') {
+          const diagnostic: Diagnostic = createDiagnostic(myLine, 'lyrics - line before must be chords', 'lyrics-line-before')
           diagnostics.push(diagnostic)
         }
       }
