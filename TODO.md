@@ -1,3 +1,5 @@
+* Download ChordPro! Add to PATH - https://www.chordpro.org/chordpro/install-windows-native/
+
 * remove unwanted codemirror plugins
 * lint action buttons don't remove whole line
 * css class for different types of lint errors to support diff styles - remove squiggly underlines?
