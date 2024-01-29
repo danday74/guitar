@@ -17,6 +17,9 @@
 * lint errors should not show immediately, they should only show after failed submit (excluding typos which should always show)
 * spelling suggestions color is purple (on popup) but underline is red - doesn't feel consistent
 
+* when transposing, gaps between chords change!
+* when entering 2nd verse, it knows chords - just doesnt know where they are positioned on line
+
 * zebra stripes not on alternative lines but on chord lines?
 
 * thin scrollbar 4 code completion

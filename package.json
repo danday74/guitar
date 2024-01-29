@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "gen-chord-type": "npx vite-node gen-chord-type.ts"
+    "gen-chord-type": "npx vite-node gen-chord-type.ts",
+    "chordpro": "node chordpro/chordpro.mjs"
   },
   "private": true,
   "dependencies": {
@@ -49,6 +50,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "ps-list": "^8.1.1",
+    "tree-kill": "^1.2.2",
     "typescript": "~5.2.2"
   }
 }
