@@ -1,7 +1,7 @@
 import kill from 'tree-kill'
 import path from 'path'
 import psList from 'ps-list'
-import { execSync } from 'child_process'
+import { spawnSync } from 'child_process'
 import { fileURLToPath } from 'url'
 import { find } from 'lodash-es'
 
@@ -27,14 +27,24 @@ if (pid) {
 
 // EXECUTE CHORDPRO
 
-const cmd1 = 'chordpro chordpro/test.cho --output=chordpro/test.pdf --strict --verbose'
-execSync(cmd1)
+const cmd1 = 'chordpro chordpro/test.cho --output=chordpro/test.pdf --strict'
+const code = spawnSync(cmd1, { shell: true })
+
+const stderr = code.stderr.toString()
+const success = stderr === ''
+if (!success) {
+  console.log(stderr)
+  process.exit(1)
+}
 
 // OPEN PDF
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename).replaceAll('\\', '/')
+if (success) {
+  console.log('success')
+  const __filename = fileURLToPath(import.meta.url)
+  const __dirname = path.dirname(__filename).replaceAll('\\', '/')
 
-const pdf = `${__dirname}/test.pdf`
-const cmd2 = `start chrome ${pdf}`
-execSync(cmd2)
+  const pdf = `${__dirname}/test.pdf`
+  const cmd2 = `start chrome ${pdf}`
+  spawnSync(cmd2, { shell: true })
+}
