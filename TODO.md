@@ -16,6 +16,9 @@
 * lang select (for spelling - needs user accounts)
 * lint errors should not show immediately, they should only show after failed submit (excluding typos which should always show)
 * spelling suggestions color is purple (on popup) but underline is red - doesn't feel consistent
+* find and replace
+* no chord (lyrics only for a bit)
+* song parts / song titles - e.g. chorus, verse, etc
 
 * when transposing, gaps between chords change!
 * when entering 2nd verse, it knows chords - just doesnt know where they are positioned on line
