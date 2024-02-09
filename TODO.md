@@ -1,4 +1,4 @@
-* my-linter file needs approving
+* my-linter file needs approving - cuts off chords Db to D
 
 * Download ChordPro! Add to PATH - https://www.chordpro.org/chordpro/install-windows-native/
 
@@ -23,7 +23,7 @@
 * song parts / song titles - e.g. chorus, verse, etc
 
 * when transposing, gaps between chords change!
-* when entering 2nd verse, it knows chords - just doesnt know where they are positioned on line
+* when entering 2nd verse, it knows chords - just doesn't know where they are positioned on the line
 
 * zebra stripes not on alternative lines but on chord lines?
 
