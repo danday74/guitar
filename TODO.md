@@ -1,3 +1,5 @@
+* my-linter file needs approving
+
 * Download ChordPro! Add to PATH - https://www.chordpro.org/chordpro/install-windows-native/
 
 * remove unwanted codemirror plugins
